@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import unittest
 
 
 def readFile():
@@ -17,5 +18,15 @@ def sol_two():
         print(line)
 
 
-sol_one()
-# sol_two()
+class Test(unittest.TestCase):
+    def test_one(self):
+        self.assertEqual(1, 1)
+
+    def test_two(self):
+        self.assertEqual(1, 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
+    # sol_one()
+    # sol_two()
