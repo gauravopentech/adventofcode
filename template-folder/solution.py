@@ -9,13 +9,17 @@ def readFile():
 
 
 def sol_one():
+    total = 0
     for line in readFile():
         print(line)
+    return total
 
 
 def sol_two():
+    total = 0
     for line in readFile():
         print(line)
+    return total
 
 
 class Test(unittest.TestCase):
