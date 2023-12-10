@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import unittest
 
+# filename = "input.txt"
+filename = "testinput.txt"
+
 
 def readFile():
     with open("input.txt") as infile:
@@ -31,6 +34,5 @@ class Test(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
-    # sol_one()
+    sol_one()
     # sol_two()
