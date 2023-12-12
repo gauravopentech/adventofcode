@@ -12,9 +12,9 @@ class Solution:
         self.part_to_run = part_to_run
 
     def extract_input(self):
-        with open("input.txt") as infile:
-            for line in infile:
-                print(line)
+        with open(self.filename) as infile:
+            lines = infile.readlines()
+        return lines
 
     def run(self):
         if self.part_to_run == 1:
