@@ -20,7 +20,7 @@ class Solution:
                 loc, options = line.split("=")
                 loc = loc.strip()
                 options = options.strip()
-                network[loc] = {'L':options[1:4],"R": options[6:9]}
+                network[loc] = {"L": options[1:4], "R": options[6:9]}
 
         return directions, network
 
@@ -41,8 +41,8 @@ class Solution:
 
     def sol_one(self):
         directions, network = self.extract_input()
-        curr_loc = 'AAA'
-        end = 'ZZZ'
+        curr_loc = "AAA"
+        end = "ZZZ"
         turn_count = 0
         for direction in self.get_next_direction(directions):
             curr_loc = network[curr_loc][direction]
@@ -56,16 +56,18 @@ class Solution:
         import math
 
         directions, network = self.extract_input()
-        curr_locs = filter(lambda x: x[-1] == 'A', network.keys())
+        curr_locs = filter(lambda x: x[-1] == "A", network.keys())
+
         def find_turn_count(curr_loc):
             turn_count = 0
             for direction in self.get_next_direction(directions):
                 curr_loc = network[curr_loc][direction]
                 turn_count += 1
-                if curr_loc[-1] == 'Z':
+                if curr_loc[-1] == "Z":
                     break
 
             return turn_count
+
         loc_turn_counts = list(map(find_turn_count, curr_locs))
         return math.lcm(*loc_turn_counts)
 

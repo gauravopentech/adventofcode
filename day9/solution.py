@@ -26,7 +26,6 @@ class Solution:
         def is_predictable(diffs):
             return all(x == diffs[0] for x in diffs)
 
-
         input = self.extract_input()
 
         history_sum = 0
@@ -46,11 +45,9 @@ class Solution:
                 difflist[-1].append(nextitem)
             history_sum += nextitem
 
-
         return history_sum
 
 
-
 if __name__ == "__main__":
-    solution = Solution("input.txt",2)
+    solution = Solution("input.txt", 2)
     print(solution.run())

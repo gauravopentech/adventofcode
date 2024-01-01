@@ -6,7 +6,7 @@ import heapq
 
 class Solution:
     FIVE_OF_KIND = set([(5,)])
-    FOUR_OF_KIND = set([(4, 1), (1,4)])
+    FOUR_OF_KIND = set([(4, 1), (1, 4)])
     FULL_HOUSE = set([(3, 2), (2, 3)])
     THREE_OF_KIND = set([(3, 1, 1), (1, 3, 1), (1, 1, 3)])
     TWO_PAIRS = set([(2, 2, 1), (2, 1, 2), (1, 2, 2)])
@@ -58,7 +58,7 @@ class Solution:
             for card in hand:
                 newhand += Solution.card_strength_map[card]
                 card_counts[card] = card_counts.get(card, 0) + 1
-            
+
             countset = tuple(card_counts.values())
             if countset in Solution.FIVE_OF_KIND:
                 newhand = "G" + newhand
@@ -100,7 +100,7 @@ class Solution:
                 newhand += Solution.card_strength_map[card]
                 card_counts[card] = card_counts.get(card, 0) + 1
             found_j = False
-            if 'J' in card_counts:
+            if "J" in card_counts:
                 found_j = True
 
             countset = tuple(card_counts.values())
@@ -114,9 +114,9 @@ class Solution:
                 rank = "F" if found_j else "D"
             elif countset in Solution.TWO_PAIRS:
                 rank = "C"
-                if card_counts.get('J') == 1:
+                if card_counts.get("J") == 1:
                     rank = "E"
-                elif card_counts.get('J') == 2:
+                elif card_counts.get("J") == 2:
                     rank = "F"
             elif countset in Solution.ONE_PAIR:
                 rank = "D" if found_j else "B"
@@ -126,7 +126,7 @@ class Solution:
             return newhand
 
         normalhands = []
-        Solution.card_strength_map['J'] = 'F'
+        Solution.card_strength_map["J"] = "F"
         for hand, points in self.extract_input():
             normhand = normalize_hand(hand)
             normalhands.append((normhand, points, hand))
